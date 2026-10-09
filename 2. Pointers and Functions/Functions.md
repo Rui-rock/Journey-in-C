@@ -58,7 +58,25 @@ The __##__ preprocessor operator provides a way to concatenate actual arguments 
 
 <span style='color: orange;'> __H5.__ </span> It is possible to include conditionals in preprocessing. The `#if` evaluates a constant integer expression (may not include sizeof, casts or enum constantes), subsequent lines are included until `#endif`, `#elif` (else if) or `#else`.
 
-<span style='color: orange;'> __H6.__ </span> Pragma is a preprocessor directive that tells the compiler to handle a specific instruction or option. Can be declared as `_Pragma` or `#Pragma`.<br> An interesting use is to make complex number evaluation not assume the intermediate calculations will overflow or underflow. It turns the `CX_LIMITED_RANGE` on.
+<span style='color: orange;'> __H6.__ </span> The `#ifdef` executes a code if what it states is true. The opposite is `#ifndef`.
+
+```
+#include <stdio.h>
+
+#define EXTRA_HAPPY
+
+int main(void)
+{
+
+#ifdef EXTRA_HAPPY
+    printf("I'm extra happy!\n");
+#endif
+
+    printf("OK!\n");
+}
+```
+
+<span style='color: orange;'> __H7.__ </span> Pragma is a preprocessor directive that tells the compiler to handle a specific instruction or option. Can be declared as `_Pragma` or `#Pragma`.<br> An interesting use is to make complex number evaluation not assume the intermediate calculations will overflow or underflow. It turns the `CX_LIMITED_RANGE` on.
 
 ```
 #include <complex.h>
@@ -78,7 +96,7 @@ int main(void) {
 
 ```
 
-<span style='color: orange;'> __H7.__ </span> Standard C provides some predefined symbolic constants:
+<span style='color: orange;'> __H8.__ </span> Standard C provides some predefined symbolic constants:
 
 ```
 _LINE_ The line number of the current source code line (An integer constant)
@@ -89,7 +107,7 @@ _TIME_ The time source file was compiled (A string literal of the form
 _STDC_ Value 1 if the compiler supports Standard C. 
 ```
 
-<span style='color: orange;'> __H8.__ </span> The `void assert(int expression)` is a function that verifies erros and writes those to STDERR. If the expression is `FALSE`, assert displays an error message on stderr and aborts program execution.
+<span style='color: orange;'> __H9.__ </span> The `void assert(int expression)` is a function that verifies erros and writes those to STDERR. If the expression is `FALSE`, assert displays an error message on stderr and aborts program execution.
 
 ### Compilation, Assembling, Linking and Program Execution
 
